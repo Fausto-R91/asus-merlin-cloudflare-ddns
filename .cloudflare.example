@@ -27,9 +27,9 @@ CLOUDFLARE_API_KEY='<your cloudflare account api key>'
 DNS_ZONE_ID='<the id for the zone that contains your target dns record>'
 
 # record information
-DNS_RECORD_ID='<the id for the target dns record>'
+DNS_RECORD_ID='<the id for the target A (IPv4) dns record>'
+DNS_AAAA_RECORD_ID='<the id for the target AAAA (IPv6) dns record>'
 DNS_RECORD_NAME='<the domain name to be changed>'
-DNS_RECORD_TYPE='A'
-# Determines whether the zone will be proxied by Cloudflare. 
+# Determines whether the zone will be proxied by Cloudflare.
 DNS_RECORD_PROXIED='false'
 

@@ -45,6 +45,19 @@ trap "rm -f $LOGFILE_TEMPFILE $CMD_ERROR_TEMPFILE" EXIT
 # user input IP address
 NEW_IP=$1
 
+# Detect IP version and select appropriate record
+case "$NEW_IP" in
+	*:*)
+		# IPv6 address (contains colons)
+		DNS_RECORD_TYPE="AAAA"
+		DNS_RECORD_ID="$DNS_AAAA_RECORD_ID"
+		;;
+	*.*.*.*)
+		# IPv4 address (contains dots)
+		DNS_RECORD_TYPE="A"
+		;;
+esac
+
 debug "Completed settings"
 
 log_output()
