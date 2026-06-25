@@ -56,6 +56,14 @@ case "$NEW_IP" in
 		# IPv4 address (contains dots)
 		DNS_RECORD_TYPE="A"
 		;;
+	"list")
+		# This is a command, not an IP. It will be handled later.
+		;;
+	*)
+		(>&2 echo "Error: Invalid IP address or command: '$NEW_IP'")
+		log_output "INVALID_INPUT" "$NEW_IP"
+		exit 1
+		;;
 esac
 
 debug "Completed settings"
